@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import EventCard from "@/app/client/event-card";
-import EventDetailModal from "@/app/client/event-detail-modal";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import EventCard from "../app/client/event-card";
+import EventDetailModal from "../app/client/event-detail-modal";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 import { Search } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import type { Event } from "@/lib/supabase";
-import { usePublicEvents } from "@/hooks/usePublicEvents";
+import { useToast } from "../hooks/use-toast";
+import type { Event } from "../lib/supabase";
+import { usePublicEvents } from "../hooks/usePublicEvents";
 
 export default function ClientPage() {
   const { toast } = useToast();

@@ -18,6 +18,10 @@ const nextConfig = {
     // Enable better module resolution
     esmExternals: true,
   },
+  // Configure allowed image domains for next/image
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 };
 
 module.exports = nextConfig;
