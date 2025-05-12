@@ -7,20 +7,20 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
+} from "../../components/ui/table";
+import { Button } from "../../components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Badge } from "@/components/ui/badge";
+} from "../../components/ui/dropdown-menu";
+import { Badge } from "../../components/ui/badge";
 import { Clock, CheckCircle2, MoreVertical, GripVertical } from "lucide-react";
 import type { Event } from "./types";
 import { useState } from "react";
 import DeleteConfirmDialog from "./delete-confirm-dialog";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "../../components/ui/checkbox";
 import Image from "next/image";
 
 interface EventTableProps {
