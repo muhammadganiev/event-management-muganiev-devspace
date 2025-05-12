@@ -1,9 +1,9 @@
 "use client";
 import { AppSidebar } from "@/components/app-sidebar";
 import DataTable from "@/components/data-table";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { useEvents } from "@/hooks/UseEvents";
+import { useEvents } from "@/hooks/useEvents";
 
 // TODO: Implement route protection (only allow logged-in admins)
 // TODO: Replace data with real event data and add CRUD operations
