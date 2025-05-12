@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { LoginForm } from "@/components/login-form";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+import { LoginForm } from "../../components/login-form";
+import { Button } from "../../components/ui/button";
 
 export default function LoginPage() {
   return (

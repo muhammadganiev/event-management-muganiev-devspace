@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Event } from "@/lib/supabase";
-import { useSocket } from "@/components/SocketProvider";
+import { Event } from "../lib/supabase";
+import { useSocket } from "../components/SocketProvider";
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
