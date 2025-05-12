@@ -4,6 +4,7 @@ import type { Event } from "./types";
 export const initialEvents: Event[] = [
   {
     id: "1",
+    created_at: "2025-01-15T10:30:00Z",
     title: "Tech Conference 2025",
     date: "2025-06-15",
     time: "09:00",
@@ -11,7 +12,7 @@ export const initialEvents: Event[] = [
     description:
       "Annual technology conference featuring the latest innovations and industry speakers. This premier event brings together thought leaders, innovators, and technology enthusiasts from around the globe. Attendees will experience hands-on workshops, keynote presentations from industry pioneers, networking opportunities with like-minded professionals, and exclusive previews of upcoming technologies. The conference will cover a wide range of topics including artificial intelligence, blockchain, cloud computing, cybersecurity, data science, and emerging technologies. Whether you're a seasoned professional or just starting your tech journey, this conference offers valuable insights and connections to help advance your career and knowledge. Don't miss this opportunity to be part of the most anticipated tech event of the year!",
     attendees: 1200,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Cover page",
     target: 18,
     limit: 5,
@@ -20,6 +21,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "2",
+    created_at: "2025-01-20T14:15:00Z",
     title: "Music Festival",
     date: "2025-07-22",
     time: "16:00",
@@ -27,7 +29,7 @@ export const initialEvents: Event[] = [
     description:
       "Three-day music festival with top artists from around the world.",
     attendees: 5000,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Table of contents",
     target: 29,
     limit: 24,
@@ -35,6 +37,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "3",
+    created_at: "2025-01-05T09:45:00Z",
     title: "Charity Gala",
     date: "2025-05-10",
     time: "19:00",
@@ -42,7 +45,7 @@ export const initialEvents: Event[] = [
     description:
       "Annual fundraising event for local charities with dinner and silent auction.",
     attendees: 350,
-    status: "completed",
+    status: "completed" as const,
     sectionType: "Executive summary",
     target: 10,
     limit: 13,
@@ -51,6 +54,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "4",
+    created_at: "2025-02-01T11:20:00Z",
     title: "Product Launch",
     date: "2025-08-05",
     time: "10:00",
@@ -58,7 +62,7 @@ export const initialEvents: Event[] = [
     description:
       "Exclusive launch event for our newest product line with demonstrations and networking.",
     attendees: 200,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Technical approach",
     target: 27,
     limit: 23,
@@ -66,6 +70,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "5",
+    created_at: "2024-12-12T16:30:00Z",
     title: "Workshop Series",
     date: "2025-04-18",
     time: "13:00",
@@ -73,7 +78,7 @@ export const initialEvents: Event[] = [
     description:
       "Weekly workshop series covering various topics in professional development.",
     attendees: 75,
-    status: "completed",
+    status: "completed" as const,
     sectionType: "Design",
     target: 2,
     limit: 16,
@@ -82,6 +87,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "6",
+    created_at: "2025-02-15T08:00:00Z",
     title: "Annual Conference",
     date: "2025-09-22",
     time: "08:00",
@@ -89,7 +95,7 @@ export const initialEvents: Event[] = [
     description:
       "Our flagship annual conference bringing together industry leaders and innovators.",
     attendees: 1500,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Capabilities",
     target: 20,
     limit: 8,
@@ -97,6 +103,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "7",
+    created_at: "2025-01-30T13:45:00Z",
     title: "Developer Meetup",
     date: "2025-06-30",
     time: "18:30",
@@ -104,7 +111,7 @@ export const initialEvents: Event[] = [
     description:
       "Monthly meetup for developers to network and share knowledge.",
     attendees: 120,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Integration with existing systems",
     target: 19,
     limit: 21,
@@ -112,6 +119,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "8",
+    created_at: "2025-02-05T09:15:00Z",
     title: "Leadership Summit",
     date: "2025-08-15",
     time: "09:00",
@@ -119,7 +127,7 @@ export const initialEvents: Event[] = [
     description:
       "Exclusive summit for C-level executives focusing on future trends.",
     attendees: 75,
-    status: "completed",
+    status: "completed" as const,
     sectionType: "Innovation and Advantages",
     target: 25,
     limit: 26,
@@ -128,6 +136,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "9",
+    created_at: "2025-03-01T10:30:00Z",
     title: "Industry Expo",
     date: "2025-10-05",
     time: "10:00",
@@ -135,7 +144,7 @@ export const initialEvents: Event[] = [
     description:
       "Largest industry expo showcasing the latest products and services.",
     attendees: 3000,
-    status: "upcoming",
+    status: "upcoming" as const,
     sectionType: "Technical content",
     target: 7,
     limit: 23,
@@ -143,6 +152,7 @@ export const initialEvents: Event[] = [
   },
   {
     id: "10",
+    created_at: "2025-01-28T11:00:00Z",
     title: "AI Symposium",
     date: "2025-07-12",
     time: "09:30",
@@ -150,7 +160,7 @@ export const initialEvents: Event[] = [
     description:
       "Symposium on the latest advancements in artificial intelligence and machine learning.",
     attendees: 450,
-    status: "completed",
+    status: "completed" as const,
     sectionType: "Narrative",
     target: 30,
     limit: 28,
