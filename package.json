@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node_modules/next/dist/bin/next dev",
-    "build": "npm install --legacy-peer-deps && node_modules/next/dist/bin/next build",
+    "build": "NODE_ENV=development npm install --legacy-peer-deps && NODE_ENV=production node_modules/next/dist/bin/next build",
     "start": "node_modules/next/dist/bin/next start -p $PORT",
     "lint": "node_modules/next/dist/bin/next lint"
   },
