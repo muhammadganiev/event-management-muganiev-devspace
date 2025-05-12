@@ -10,10 +10,10 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
+} from "../components/ui/resizable-navbar";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { SocketProvider } from "@/components/SocketProvider";
+import { SocketProvider } from "../components/SocketProvider";
 
 export default function RootLayout({
   children,

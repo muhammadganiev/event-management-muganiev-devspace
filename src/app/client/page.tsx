@@ -1,24 +1,24 @@
 "use client";
 
-import { AppSidebar } from "@/components/client-sidebar";
+import { AppSidebar } from "../../components/client-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+} from "../../components/ui/breadcrumb";
+import { Separator } from "../../components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "../../components/ui/sidebar";
 import EventCard from "./event-card";
-import { usePublicEvents } from "@/hooks/usePublicEvents";
+import { usePublicEvents } from "../../hooks/usePublicEvents";
 import { useState } from "react";
 import EventDetailModal from "./event-detail-modal";
-import { useToast } from "@/hooks/use-toast";
-import type { Event } from "@/lib/supabase";
+import { useToast } from "../../hooks/use-toast";
+import type { Event } from "../../lib/supabase";
 
 export default function ClientEventsPage() {
   const { events, loading } = usePublicEvents();

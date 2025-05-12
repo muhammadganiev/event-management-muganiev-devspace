@@ -7,12 +7,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Badge } from "../../components/ui/badge";
 import { Calendar, Clock, MapPin, Users } from "lucide-react";
 import Image from "next/image";
-import type { Event } from "@/lib/supabase";
+import type { Event } from "../../lib/supabase";
 
 interface EventCardProps {
   event: Event;

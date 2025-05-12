@@ -1,20 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 import { Plus, LayoutGrid } from "lucide-react";
-import EventTable from "@/app/admin/event-table";
-import EventFormDialog from "@/app/admin/event-form-dialog";
-import type { Event } from "@/app/admin/types";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import EventTable from "../app/admin/event-table";
+import EventFormDialog from "../app/admin/event-form-dialog";
+import type { Event } from "../app/admin/types";
+import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "./ui/select";
 
 interface DataTableProps {
   events: Event[];
