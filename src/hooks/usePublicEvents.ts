@@ -24,12 +24,16 @@ export function usePublicEvents() {
 
   useEffect(() => {
     fetchEvents(true); // Initial load
-    if (!socket) return;
+    if (!socket) return undefined; // Return undefined for cleanup if no socket
+
     const handler = () => fetchEvents(false); // Background update
     socket.on("eventChanged", handler);
-    return () => socket.off("eventChanged", handler);
+
+    // Return a proper cleanup function
+    return () => {
+      socket.off("eventChanged", handler);
+    };
   }, [socket]);
 
   return { events, loading, isUpdating };
 }
- 
