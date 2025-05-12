@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { MoreVertical, CreditCard, LogOut, Bell, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
