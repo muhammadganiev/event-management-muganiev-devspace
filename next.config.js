@@ -7,7 +7,16 @@ const nextConfig = {
       ...config.resolve.fallback,
     };
 
+    // Enhanced module resolution to handle case sensitivity
+    config.resolve.symlinks = false;
+
     return config;
+  },
+  // Disable static export for App Router APIs
+  output: "standalone",
+  experimental: {
+    // Enable better module resolution
+    esmExternals: true,
   },
 };
 
