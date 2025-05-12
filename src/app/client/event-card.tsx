@@ -1,24 +1,37 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, MapPin, Users } from "lucide-react"
-import Image from "next/image"
-import type { Event } from "../admin/types"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, Clock, MapPin, Users } from "lucide-react";
+import Image from "next/image";
+import type { Event } from "@/lib/supabase";
 
 interface EventCardProps {
-  event: Event
+  event: Event;
+  onRegister: (event: Event) => void;
+  onViewDetails: (event: Event) => void;
 }
 
-export default function EventCard({ event }: EventCardProps) {
+export default function EventCard({
+  event,
+  onRegister,
+  onViewDetails,
+}: EventCardProps) {
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
-    })
-  }
+    });
+  };
 
   return (
     <Card className="overflow-hidden flex flex-col h-full">
@@ -45,7 +58,9 @@ export default function EventCard({ event }: EventCardProps) {
             {event.status === "completed" ? "Completed" : "Upcoming"}
           </Badge>
         </div>
-        <CardDescription className="line-clamp-2">{event.description}</CardDescription>
+        <CardDescription className="line-clamp-2">
+          {event.description}
+        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2 flex-grow">
         <div className="flex flex-wrap items-center text-sm text-muted-foreground gap-x-4 gap-y-1">
@@ -67,21 +82,18 @@ export default function EventCard({ event }: EventCardProps) {
           <span>{event.attendees.toLocaleString()} attendees</span>
         </div>
       </CardContent>
-      <CardFooter className="flex gap-2 mt-auto">
+      <CardFooter className="flex gap-2 mt-auto z-10 relative">
         <Button
           variant="outline"
           className="flex-1"
-          onClick={() => window.dispatchEvent(new CustomEvent("register-event", { detail: event }))}
+          onClick={() => onRegister(event)}
         >
           Register
         </Button>
-        <Button
-          className="flex-1"
-          onClick={() => window.dispatchEvent(new CustomEvent("view-event-details", { detail: event }))}
-        >
+        <Button className="flex-1" onClick={() => onViewDetails(event)}>
           View Details
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

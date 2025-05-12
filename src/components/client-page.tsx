@@ -7,59 +7,40 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import type { Event } from "@/app/admin/types";
-
-// This would normally come from an API or database
-import { initialEvents } from "@/app/admin/data";
+import type { Event } from "@/lib/supabase";
+import { usePublicEvents } from "@/hooks/usePublicEvents";
 
 export default function ClientPage() {
   const { toast } = useToast();
+  const { events, loading } = usePublicEvents();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   // Filter events based on search query
-  const filteredEvents = initialEvents.filter(
+  const filteredEvents = events.filter(
     (event) =>
       event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       event.location.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Set up event listeners for view details and register buttons
-  useState(() => {
-    const handleViewDetails = (e: Event) => {
-      const event = e as unknown as CustomEvent<Event>;
-      setSelectedEvent(event.detail);
-      setIsDetailModalOpen(true);
-    };
+  const handleRegister = (event: Event) => {
+    toast({
+      title: "Registration Started",
+      description: `You&apos;re registering for ${event.title}. Click &quot;View Details&quot; for the full registration form.`,
+      className: "success-toast",
+    });
+    setSelectedEvent(event);
+    setIsDetailModalOpen(true);
+  };
 
-    const handleRegister = (e: Event) => {
-      const event = e as unknown as CustomEvent<Event>;
-      // For direct registration from card, show a toast
-      toast({
-        title: "Registration Started",
-        description: `You're registering for ${event.detail.title}. Click "View Details" for the full registration form.`,
-        className: "success-toast",
-      });
-      setSelectedEvent(event.detail);
-      setIsDetailModalOpen(true);
-    };
+  const handleViewDetails = (event: Event) => {
+    setSelectedEvent(event);
+    setIsDetailModalOpen(true);
+  };
 
-    window.addEventListener(
-      "view-event-details",
-      handleViewDetails as unknown as EventListener
-    );
-    window.addEventListener(
-      "register-event",
-      handleRegister as unknown as EventListener
-    );
-
-    return () => {
-      window.removeEventListener("view-event-details");
-      window.removeEventListener("register-event");
-    };
-  }, []);
+  if (loading) return <div>Loading events...</div>;
 
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
@@ -85,7 +66,12 @@ export default function ClientPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
+            <EventCard
+              key={event.id}
+              event={event}
+              onRegister={handleRegister}
+              onViewDetails={handleViewDetails}
+            />
           ))
         ) : (
           <div className="col-span-full text-center py-8 sm:py-12">
@@ -93,7 +79,7 @@ export default function ClientPage() {
               No events found
             </h3>
             <p className="text-muted-foreground mb-4 text-sm sm:text-base">
-              We couldn't find any events matching your search.
+              We couldn&apos;t find any events matching your search.
             </p>
             <Button onClick={() => setSearchQuery("")}>Clear Search</Button>
           </div>

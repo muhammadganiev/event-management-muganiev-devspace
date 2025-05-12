@@ -1,7 +1,4 @@
-import Image from "next/image";
 import Spline from "@splinetool/react-spline";
-import { Boxes } from "@/components/ui/background-boxes";
-import { PinContainer } from "@/components/ui/3d-pin";
 
 export default function Home() {
   return (
