@@ -2,5 +2,11 @@
   "buildCommand": "rm -rf .next node_modules && npm install --legacy-peer-deps && node_modules/next/dist/bin/next build",
   "framework": "nextjs",
   "outputDirectory": ".next",
-  "devCommand": "node_modules/next/dist/bin/next dev"
+  "devCommand": "node_modules/next/dist/bin/next dev",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "crons": []
 }
